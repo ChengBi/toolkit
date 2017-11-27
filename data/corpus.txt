@@ -1,5 +1,3 @@
 a b c d e
 a b d e
 a c d e
-a e
-e

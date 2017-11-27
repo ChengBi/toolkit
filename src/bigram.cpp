@@ -8,6 +8,7 @@
 #include <sstream>
 #include <map>
 #include "wordNode.h"
+#include <stack>
 
 
 
@@ -21,17 +22,21 @@ public:
 	void directGraphGenerator();
 	void printSet();
 	void printMap();
+	void getPath();
 	~Bigram();
+	void search(wordNode* head, wordNode* tail);
 
 private:
 	set<string> words_set;
 	map<int, string> words_map;
 	map<string, int> words_map_inverse;
 	map<pair<int, int>, int> graph;
+	vector<wordNode*> starters;
+	vector<wordNode*> enders;
+	vector<wordNode*> directedGraph;
 	int size;
 	string filename;
 	void loadCorpus();
-
 
 };
 
@@ -79,10 +84,10 @@ void Bigram::printMap(){
 	for (it = this->words_map.begin(); it != this->words_map.end(); ++it){
 		cout << it->first << " => " << it->second <<endl;
 	}
-	map<string, int>::iterator iti;
-	for (iti = this->words_map_inverse.begin(); iti != this->words_map_inverse.end(); ++iti){
-		cout << iti->first << " => " << iti->second <<endl;
-	}
+	// map<string, int>::iterator iti;
+	// for (iti = this->words_map_inverse.begin(); iti != this->words_map_inverse.end(); ++iti){
+	// 	cout << iti->first << " => " << iti->second <<endl;
+	// }
 }
 
 void Bigram::graphGenerator(){
@@ -113,33 +118,115 @@ void Bigram::graphGenerator(){
 	file.close();
 	map<pair<int, int>, int>::iterator it;
 	for (it = this->graph.begin(); it != this->graph.end(); ++it){
-		cout << "Key: " << it->first.first << " - " << it->first.second << " , Value: " << it->second << endl;
+		printf("Key: %d => %d , Value: %d \n",it->first.first, it->first.second, it->second);
 	}
 }
 
 void Bigram::directGraphGenerator(){
-	vector<wordNode*> nodes;
+	// vector<wordNode*> nodes;
 	map<int, string>::iterator it;
 	for (it = this->words_map.begin(); it != this->words_map.end(); ++it){
-		nodes.push_back(new wordNode(it->second, it->first));
+		this->directedGraph.push_back(new wordNode(it->second, it->first));
 		// nodes[nodes.size()-1]->toString();
 	}
-	for (int i = 0; i < nodes.size(); i ++){
-		for (int j = 0; j < nodes.size(); j ++){
+	printf("Building directed graph ...\n");
+	for (int i = 0; i < this->directedGraph.size(); i ++){
+		for (int j = 0; j < this->directedGraph.size(); j ++){
 			if (i != j ){
-				pair<int, int> key(nodes[i]->getID(), nodes[j]->getID());
+				pair<int, int> key(this->directedGraph[i]->getID(), this->directedGraph[j]->getID());
 				if (this->graph.find(key) != this->graph.end()){
-					nodes[i]->addSon(nodes[j]);
-					nodes[j]->addParent(nodes[i]);
+					this->directedGraph[i]->addSon(this->directedGraph[j]);
+					this->directedGraph[j]->addParent(this->directedGraph[i]);
 				}
 			}
 		}
 	}
-	for(int i = 0; i < nodes.size(); i ++){
-		nodes[i]->checkSelf();
+	printf("Built target ... \n");
+	for(int i = 0; i < this->directedGraph.size(); i ++){
+		this->directedGraph[i]->checkSelf();
+		if (this->directedGraph[i]->getType() == 0)
+			this->starters.push_back(this->directedGraph[i]);
+		if (this->directedGraph[i]->getType() == 2)
+			this->enders.push_back(this->directedGraph[i]);
 	}
-	for(int i = 0; i < nodes.size(); i ++){
-		nodes[i]->toString();
+	// for(int i = 0; i < this->directedGraph.size(); i ++){
+	// 	this->directedGraph[i]->toString();
+	// }
+}
+
+void Bigram::getPath(){
+	for (int i = 0; i < this->starters.size(); i ++){
+		for (int j = 0; j < this->enders.size(); j ++){
+			printf("Searching nodes: %d => %d \n", this->starters[i]->getID(), this->enders[j]->getID());
+			search(this->starters[i], this->enders[j]);
+		}
+	}
+	// search(this->starters[0], this->enders[0]);
+}
+/*
+	search function cannot handle the following situation:
+	e.g. a e, where 'a' and 'e' are head node and tail node respectively.
+	e.g. a, where a senence has only only word.
+*/
+void Bigram::search(wordNode* head, wordNode* tail){
+	stack<wordNode*> s;
+	vector<vector<int> > paths;
+	vector<int> path_temp;
+	printf("Searching Progress ...\n");
+	s.push(head);
+	vector<int> previous;
+	while(!s.empty()){
+		if (s.size() == 1){
+			previous.push_back(s.top()->getID());
+		}
+		// for (int i = 0; i < previous.size(); i ++){
+		// 	path_temp.push_back(previous[i]);
+		// }
+		// printf("ID: %d \n", s.top()->getID());
+		// for (int i = 0; i < path_temp.size(); i ++){
+			// cout << path_temp[i] << " ";
+		// }
+		// cout << s.size() << endl;
+		wordNode* top = s.top();
+		vector<wordNode*> children = top->sons;
+		s.pop();
+		path_temp.push_back(top->getID());
+		if (top->getType() == 2){
+			if (top->getID() == tail->getID()){
+				paths.push_back(path_temp);
+			}
+			// for (int i = 0; i < path_temp.size(); i ++){
+			// 	cout << path_temp[i] << " ";
+			// }
+			// cout << " => " ;
+			// for (int i = 0; i < previous.size(); i ++){
+			// 	cout << previous[i] << " ";
+			// }
+			// cout << endl;
+			path_temp.clear();
+		}
+		// else{
+		set<int> ids;
+		for (int i = 0; i < path_temp.size(); i ++){
+			ids.insert(path_temp[i]);
+		}
+		if (ids.size() != path_temp.size()){
+			path_temp.clear();
+				// s.pop();
+			// continue;
+		}
+		// else{
+			for (int i = 0; i < children.size(); i ++){
+
+				s.push(children[i]);
+			}
+		// }
+	}
+	for (int i = 0; i < paths.size(); i ++){
+		for (int j = 0; j < paths[i].size(); j ++){
+			cout << paths[i][j] << " ";
+		}
+		cout << endl;
 	}
 }
 
@@ -152,9 +239,10 @@ Bigram::~Bigram(){
 
 int main(){
 
-	Bigram bigram("../data/corpus.txt");
+	Bigram bigram("../data/corpus3.txt");
 	bigram.printMap();
 	bigram.directGraphGenerator();
+	bigram.getPath();
 	// map<int, int> temp;
 	// temp.insert(pair<int, int>(1,3));
 	// temp.insert(pair<int, int>(2,5));

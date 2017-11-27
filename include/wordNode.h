@@ -17,14 +17,14 @@ class wordNode{
         int neighbours_count;
         int id;
         NODE_TYPE type;
-        vector<wordNode*> parents;
-        vector<wordNode*> sons;
+        // vector<wordNode*> parents;
+        // vector<wordNode*> sons;
 		// void checkSelf();
 		vector<int> optional_ids;
 
     public:
-//      vector<wordNode*> parents;
-//	vector<wordNode*> sons;
+        vector<wordNode*> parents;
+	    vector<wordNode*> sons;
 
         wordNode(string word, int id);
         wordNode(string word);

@@ -1,0 +1,219 @@
+<BEGIN> 请 问 随 州 市 有 什 么 新 闻 呢 <END>
+<BEGIN> 听 点 吴 忠 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 今 天 黔 西 南 有 什 么 新 闻 吗 <END>
+<BEGIN> 昭 通 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 告 诉 我 石 家 庄 有 什 么 要 闻 <END>
+<BEGIN> 请 问 柳 州 有 什 么 要 闻 <END>
+<BEGIN> 可 以 告 诉 我 邢 台 有 什 么 要 闻 吗 <END>
+<BEGIN> 请 问 巴 音 郭 楞 有 什 么 新 闻 <END>
+<BEGIN> 今 天 茂 名 有 什 么 新 闻 <END>
+<BEGIN> 今 天 郴 州 有 什 么 新 闻 吗 <END>
+<BEGIN> 你 可 以 告 诉 我 最 近 吕 梁 市 有 什 么 新 闻 吗 <END>
+<BEGIN> 黔 南 州 有 什 么 新 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 莆 田 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 我 想 听 陇 南 有 什 么 要 闻 <END>
+<BEGIN> 黔 东 南 州 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 阿 克 苏 地 区 有 什 么 新 闻 吗 <END>
+<BEGIN> 三 明 有 什 么 要 闻 <END>
+<BEGIN> 我 要 听 南 平 市 有 什 么 要 闻 <END>
+<BEGIN> 今 天 鄂 州 有 什 么 新 闻 啊 <END>
+<BEGIN> 来 一 点 黄 山 有 什 么 新 闻 <END>
+<BEGIN> 听 点 枣 庄 有 什 么 要 闻 <END>
+<BEGIN> 请 问 武 汉 有 什 么 新 闻 啊 <END>
+<BEGIN> 可 以 告 诉 我 澳 门 特 别 行 政 区 有 什 么 新 闻 吗 <END>
+<BEGIN> 你 可 以 告 诉 我 汉 口 有 什 么 要 闻 吗 <END>
+<BEGIN> 听 点 怀 柔 有 什 么 要 闻 <END>
+<BEGIN> 今 天 嘉 兴 市 有 什 么 要 闻 <END>
+<BEGIN> 资 阳 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 你 可 以 告 诉 我 昌 吉 州 有 什 么 新 闻 吗 <END>
+<BEGIN> 你 可 以 告 诉 我 今 天 武 汉 有 什 么 新 闻 <END>
+<BEGIN> 快 告 诉 我 固 原 市 有 什 么 要 闻 <END>
+<BEGIN> 请 问 承 德 市 有 什 么 新 闻 呢 <END>
+<BEGIN> 你 可 以 告 诉 我 保 山 有 什 么 要 闻 <END>
+<BEGIN> 请 告 诉 我 纽 约 有 什 么 新 闻 <END>
+<BEGIN> 给 我 听 海 北 州 有 什 么 要 闻 <END>
+<BEGIN> 听 点 衢 州 市 有 什 么 要 闻 <END>
+<BEGIN> 可 以 告 诉 我 新 乡 市 有 什 么 新 闻 <END>
+<BEGIN> 听 点 苏 州 有 什 么 要 闻 <END>
+<BEGIN> 今 天 玉 林 市 有 什 么 要 闻 啊 <END>
+<BEGIN> 可 以 告 诉 我 徐 州 有 什 么 新 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 盘 锦 有 什 么 新 闻 <END>
+<BEGIN> 可 以 告 诉 我 德 宏 有 什 么 要 闻 吗 <END>
+<BEGIN> 今 天 徐 州 有 什 么 新 闻 啊 <END>
+<BEGIN> 听 淮 安 市 有 什 么 新 闻 <END>
+<BEGIN> 告 诉 我 韶 关 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 南 充 有 什 么 新 闻 <END>
+<BEGIN> 可 以 告 诉 我 九 江 有 什 么 新 闻 吗 <END>
+<BEGIN> 今 天 达 州 有 什 么 要 闻 <END>
+<BEGIN> 请 问 茂 名 市 有 什 么 新 闻 呢 <END>
+<BEGIN> 今 天 潍 坊 有 什 么 新 闻 啊 <END>
+<BEGIN> 通 化 有 什 么 新 闻 啊 <END>
+<BEGIN> 请 问 威 海 有 什 么 要 闻 呢 <END>
+<BEGIN> 请 问 贺 州 有 什 么 新 闻 呢 <END>
+<BEGIN> 汕 头 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 请 告 诉 我 河 源 市 有 什 么 新 闻 <END>
+<BEGIN> 请 告 诉 我 邢 台 有 什 么 要 闻 <END>
+<BEGIN> 阿 拉 善 盟 有 什 么 新 闻 <END>
+<BEGIN> 今 天 湖 州 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 请 问 淮 安 市 有 什 么 要 闻 <END>
+<BEGIN> 听 点 通 化 有 什 么 要 闻 <END>
+<BEGIN> 可 以 告 诉 我 黄 石 有 什 么 新 闻 <END>
+<BEGIN> 今 天 湘 西 州 有 什 么 要 闻 啊 <END>
+<BEGIN> 景 德 镇 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 你 可 以 告 诉 我 崇 左 市 有 什 么 新 闻 <END>
+<BEGIN> 今 天 江 门 市 有 什 么 要 闻 <END>
+<BEGIN> 今 天 绥 化 市 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 常 德 有 什 么 要 闻 <END>
+<BEGIN> 请 问 宁 波 有 什 么 新 闻 呢 <END>
+<BEGIN> 今 天 汉 中 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 你 可 以 告 诉 我 延 边 朝 鲜 族 自 治 州 有 什 么 要 闻 <END>
+<BEGIN> 我 想 听 鞍 山 有 什 么 新 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 潍 坊 有 什 么 要 闻 吗 <END>
+<BEGIN> 告 诉 我 张 家 界 市 有 什 么 要 闻 <END>
+<BEGIN> 我 要 听 邢 台 市 有 什 么 要 闻 <END>
+<BEGIN> 听 清 远 有 什 么 要 闻 <END>
+<BEGIN> 听 武 汉 有 什 么 要 闻 <END>
+<BEGIN> 请 告 诉 我 乌 兰 察 布 市 有 什 么 新 闻 <END>
+<BEGIN> 请 问 唐 山 市 有 什 么 要 闻 呢 <END>
+<BEGIN> 今 天 昌 吉 回 族 自 治 州 有 什 么 新 闻 吗 <END>
+<BEGIN> 请 问 荆 州 有 什 么 新 闻 啊 <END>
+<BEGIN> 听 包 头 市 有 什 么 要 闻 <END>
+<BEGIN> 请 告 诉 我 遵 义 市 有 什 么 要 闻 <END>
+<BEGIN> 请 问 德 州 市 有 什 么 要 闻 啊 <END>
+<BEGIN> 我 想 听 西 双 版 纳 傣 族 自 治 州 有 什 么 新 闻 <END>
+<BEGIN> 请 告 诉 我 舟 山 市 有 什 么 要 闻 <END>
+<BEGIN> 听 点 肇 庆 市 有 什 么 新 闻 <END>
+<BEGIN> 听 上 海 有 什 么 要 闻 <END>
+<BEGIN> 马 鞍 山 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 今 天 白 山 有 什 么 要 闻 啊 <END>
+<BEGIN> 请 问 银 川 有 什 么 新 闻 啊 <END>
+<BEGIN> 珠 海 市 有 什 么 新 闻 <END>
+<BEGIN> 吕 梁 有 什 么 新 闻 啊 <END>
+<BEGIN> 可 以 告 诉 我 攀 枝 花 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 可 以 告 诉 我 汉 中 市 有 什 么 要 闻 <END>
+<BEGIN> 请 问 三 门 峡 有 什 么 要 闻 <END>
+<BEGIN> 盐 城 有 什 么 新 闻 吗 <END>
+<BEGIN> 今 天 益 阳 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 你 可 以 告 诉 我 今 天 临 汾 市 有 什 么 新 闻 吗 <END>
+<BEGIN> 请 问 鞍 山 市 有 什 么 要 闻 <END>
+<BEGIN> 阜 新 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 威 海 有 什 么 要 闻 <END>
+<BEGIN> 给 我 听 金 华 有 什 么 要 闻 <END>
+<BEGIN> 告 诉 我 天 津 市 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 最 近 莱 芜 市 有 什 么 新 闻 <END>
+<BEGIN> 定 西 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 可 以 告 诉 我 朝 阳 有 什 么 新 闻 吗 <END>
+<BEGIN> 快 告 诉 我 唐 山 市 有 什 么 要 闻 <END>
+<BEGIN> 我 要 听 新 闻 <END>
+<BEGIN> 可 以 告 诉 我 包 头 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 给 我 听 安 庆 市 有 什 么 新 闻 <END>
+<BEGIN> 给 我 听 安 庆 市 有 什 么 新 闻 <END>
+<BEGIN> 请 问 随 州 市 有 什 么 新 闻 呢 <END>
+<BEGIN> 听 点 吴 忠 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 今 天 黔 西 南 有 什 么 新 闻 吗 <END>
+<BEGIN> 昭 通 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 告 诉 我 石 家 庄 有 什 么 要 闻 <END>
+<BEGIN> 请 问 柳 州 有 什 么 要 闻 <END>
+<BEGIN> 可 以 告 诉 我 邢 台 有 什 么 要 闻 吗 <END>
+<BEGIN> 请 问 巴 音 郭 楞 有 什 么 新 闻 <END>
+<BEGIN> 今 天 茂 名 有 什 么 新 闻 <END>
+<BEGIN> 今 天 郴 州 有 什 么 新 闻 吗 <END>
+<BEGIN> 你 可 以 告 诉 我 最 近 吕 梁 市 有 什 么 新 闻 吗 <END>
+<BEGIN> 黔 南 州 有 什 么 新 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 莆 田 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 我 想 听 陇 南 有 什 么 要 闻 <END>
+<BEGIN> 黔 东 南 州 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 阿 克 苏 地 区 有 什 么 新 闻 吗 <END>
+<BEGIN> 三 明 有 什 么 要 闻 <END>
+<BEGIN> 我 要 听 南 平 市 有 什 么 要 闻 <END>
+<BEGIN> 今 天 鄂 州 有 什 么 新 闻 啊 <END>
+<BEGIN> 来 一 点 黄 山 有 什 么 新 闻 <END>
+<BEGIN> 听 点 枣 庄 有 什 么 要 闻 <END>
+<BEGIN> 请 问 武 汉 有 什 么 新 闻 啊 <END>
+<BEGIN> 可 以 告 诉 我 澳 门 特 别 行 政 区 有 什 么 新 闻 吗 <END>
+<BEGIN> 你 可 以 告 诉 我 汉 口 有 什 么 要 闻 吗 <END>
+<BEGIN> 听 点 怀 柔 有 什 么 要 闻 <END>
+<BEGIN> 今 天 嘉 兴 市 有 什 么 要 闻 <END>
+<BEGIN> 资 阳 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 你 可 以 告 诉 我 昌 吉 州 有 什 么 新 闻 吗 <END>
+<BEGIN> 你 可 以 告 诉 我 今 天 武 汉 有 什 么 新 闻 <END>
+<BEGIN> 快 告 诉 我 固 原 市 有 什 么 要 闻 <END>
+<BEGIN> 请 问 承 德 市 有 什 么 新 闻 呢 <END>
+<BEGIN> 你 可 以 告 诉 我 保 山 有 什 么 要 闻 <END>
+<BEGIN> 请 告 诉 我 纽 约 有 什 么 新 闻 <END>
+<BEGIN> 给 我 听 海 北 州 有 什 么 要 闻 <END>
+<BEGIN> 听 点 衢 州 市 有 什 么 要 闻 <END>
+<BEGIN> 可 以 告 诉 我 新 乡 市 有 什 么 新 闻 <END>
+<BEGIN> 听 点 苏 州 有 什 么 要 闻 <END>
+<BEGIN> 今 天 玉 林 市 有 什 么 要 闻 啊 <END>
+<BEGIN> 可 以 告 诉 我 徐 州 有 什 么 新 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 盘 锦 有 什 么 新 闻 <END>
+<BEGIN> 可 以 告 诉 我 德 宏 有 什 么 要 闻 吗 <END>
+<BEGIN> 今 天 徐 州 有 什 么 新 闻 啊 <END>
+<BEGIN> 听 淮 安 市 有 什 么 新 闻 <END>
+<BEGIN> 告 诉 我 韶 关 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 南 充 有 什 么 新 闻 <END>
+<BEGIN> 可 以 告 诉 我 九 江 有 什 么 新 闻 吗 <END>
+<BEGIN> 今 天 达 州 有 什 么 要 闻 <END>
+<BEGIN> 请 问 茂 名 市 有 什 么 新 闻 呢 <END>
+<BEGIN> 今 天 潍 坊 有 什 么 新 闻 啊 <END>
+<BEGIN> 通 化 有 什 么 新 闻 啊 <END>
+<BEGIN> 请 问 威 海 有 什 么 要 闻 呢 <END>
+<BEGIN> 请 问 贺 州 有 什 么 新 闻 呢 <END>
+<BEGIN> 汕 头 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 请 告 诉 我 河 源 市 有 什 么 新 闻 <END>
+<BEGIN> 请 告 诉 我 邢 台 有 什 么 要 闻 <END>
+<BEGIN> 阿 拉 善 盟 有 什 么 新 闻 <END>
+<BEGIN> 今 天 湖 州 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 请 问 淮 安 市 有 什 么 要 闻 <END>
+<BEGIN> 听 点 通 化 有 什 么 要 闻 <END>
+<BEGIN> 可 以 告 诉 我 黄 石 有 什 么 新 闻 <END>
+<BEGIN> 今 天 湘 西 州 有 什 么 要 闻 啊 <END>
+<BEGIN> 景 德 镇 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 你 可 以 告 诉 我 崇 左 市 有 什 么 新 闻 <END>
+<BEGIN> 今 天 江 门 市 有 什 么 要 闻 <END>
+<BEGIN> 今 天 绥 化 市 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 常 德 有 什 么 要 闻 <END>
+<BEGIN> 请 问 宁 波 有 什 么 新 闻 呢 <END>
+<BEGIN> 今 天 汉 中 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 你 可 以 告 诉 我 延 边 朝 鲜 族 自 治 州 有 什 么 要 闻 <END>
+<BEGIN> 我 想 听 鞍 山 有 什 么 新 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 潍 坊 有 什 么 要 闻 吗 <END>
+<BEGIN> 告 诉 我 张 家 界 市 有 什 么 要 闻 <END>
+<BEGIN> 我 要 听 邢 台 市 有 什 么 要 闻 <END>
+<BEGIN> 听 清 远 有 什 么 要 闻 <END>
+<BEGIN> 听 武 汉 有 什 么 要 闻 <END>
+<BEGIN> 请 告 诉 我 乌 兰 察 布 市 有 什 么 新 闻 <END>
+<BEGIN> 请 问 唐 山 市 有 什 么 要 闻 呢 <END>
+<BEGIN> 今 天 昌 吉 回 族 自 治 州 有 什 么 新 闻 吗 <END>
+<BEGIN> 请 问 荆 州 有 什 么 新 闻 啊 <END>
+<BEGIN> 听 包 头 市 有 什 么 要 闻 <END>
+<BEGIN> 请 告 诉 我 遵 义 市 有 什 么 要 闻 <END>
+<BEGIN> 请 问 德 州 市 有 什 么 要 闻 啊 <END>
+<BEGIN> 我 想 听 西 双 版 纳 傣 族 自 治 州 有 什 么 新 闻 <END>
+<BEGIN> 请 告 诉 我 舟 山 市 有 什 么 要 闻 <END>
+<BEGIN> 听 点 肇 庆 市 有 什 么 新 闻 <END>
+<BEGIN> 听 上 海 有 什 么 要 闻 <END>
+<BEGIN> 马 鞍 山 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 今 天 白 山 有 什 么 要 闻 啊 <END>
+<BEGIN> 请 问 银 川 有 什 么 新 闻 啊 <END>
+<BEGIN> 珠 海 市 有 什 么 新 闻 <END>
+<BEGIN> 吕 梁 有 什 么 新 闻 啊 <END>
+<BEGIN> 可 以 告 诉 我 攀 枝 花 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 可 以 告 诉 我 汉 中 市 有 什 么 要 闻 <END>
+<BEGIN> 请 问 三 门 峡 有 什 么 要 闻 <END>
+<BEGIN> 盐 城 有 什 么 新 闻 吗 <END>
+<BEGIN> 今 天 益 阳 市 有 什 么 新 闻 啊 <END>
+<BEGIN> 你 可 以 告 诉 我 今 天 临 汾 市 有 什 么 新 闻 吗 <END>
+<BEGIN> 请 问 鞍 山 市 有 什 么 要 闻 <END>
+<BEGIN> 阜 新 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 威 海 有 什 么 要 闻 <END>
+<BEGIN> 给 我 听 金 华 有 什 么 要 闻 <END>
+<BEGIN> 告 诉 我 天 津 市 有 什 么 要 闻 <END>
+<BEGIN> 你 可 以 告 诉 我 最 近 莱 芜 市 有 什 么 新 闻 <END>
+<BEGIN> 定 西 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 可 以 告 诉 我 朝 阳 有 什 么 新 闻 吗 <END>
+<BEGIN> 快 告 诉 我 唐 山 市 有 什 么 要 闻 <END>
+<BEGIN> 我 要 听 新 闻 <END>
+<BEGIN> 可 以 告 诉 我 包 头 市 有 什 么 要 闻 吗 <END>
+<BEGIN> 给 我 听 安 庆 市 有 什 么 新 闻 <END>
