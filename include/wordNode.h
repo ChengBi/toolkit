@@ -12,13 +12,15 @@ enum NODE_TYPE{
 class wordNode{
 
     private:
-	string word;
+				
+		string word;
         int neighbours_count;
         int id;
         NODE_TYPE type;
         vector<wordNode*> parents;
         vector<wordNode*> sons;
-	void checkSelf();
+		void checkSelf();
+		vector<int> optional_ids;
 
     public:
 //      vector<wordNode*> parents;
@@ -28,17 +30,17 @@ class wordNode{
         wordNode(string word);
         wordNode();
 	
-	void addParent(wordNode* parent);
-	void delParent(wordNode* parent);
-	void addSon(wordNode* son);
-	void delSon(wordNode* son);
+		void addParent(wordNode* parent);
+		void delParent(wordNode* parent);
+		void addSon(wordNode* son);
+		void delSon(wordNode* son);
 
 //	void checkSelf();
-	NODE_TYPE getType();
-	int getNeighboursCount();
-	string getWord();
-	void toString();
-	~wordNode();
+		NODE_TYPE getType();
+		int getNeighboursCount();
+		string getWord();
+		void toString();
+		~wordNode();
 
 };
 
