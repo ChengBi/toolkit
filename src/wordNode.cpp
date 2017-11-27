@@ -20,18 +20,18 @@ void wordNode::addParent(wordNode* parent){
     this->parents.push_back(parent);
 //    infinite loop
 //    parent->addSon(this);
-    checkSelf();
+    // checkSelf();
 }
 
 void wordNode::delParent(wordNode* parent){
-    
+
 }
 
 void wordNode::addSon(wordNode* son){
     this->sons.push_back(son);
 //    infinite loop
 //    son->addParent(this);
-    checkSelf();
+    // checkSelf();
 }
 
 void wordNode::delSon(wordNode* son){
@@ -66,6 +66,10 @@ string wordNode::getWord(){
     return this->word;
 }
 
+int wordNode::getID(){
+    return this->id;
+}
+
 void wordNode::toString(){
     printf("|-------------------------------|\n");
     printf("|           NODE INFO           |\n");
@@ -82,8 +86,3 @@ wordNode::~wordNode(){
     this->parents.clear();
     this->sons.clear();
 }
-
-
-
-
-

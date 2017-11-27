@@ -9,16 +9,13 @@ class wordGraph{
 
     private:
 		vector<int> ids;
-		wordNode* head;   
- 
+		wordNode* head;
+
 	public:
 		wordGraph();
 		void insert(wordNode* node);
 		void remove(wordNode* node);
 		void combine(wordNode* node1, wordNode* node2);
 		void print();
-		void search();
+		wordNode* search(wordNode* node);
 };
-
-
-
