@@ -1,6 +1,6 @@
 cc=g++
 exe=main
-obj=main.o wordNode.o wordGraph.o
+obj=main.o wordTree.o #wordNode.o wordGraph.o bigram.o
 includedir=F:\github\toolkit\include
 matdir=F:\github\eigen
 
@@ -13,11 +13,14 @@ wordNode.o:wordNode.cpp
 wordGraph.o:wordGraph.cpp
 	$(cc) -c wordGraph.cpp -I $(includedir)
 
-# main.o:main.cpp
-#	$(cc) -c main.cpp -I $(includedir)
+bigram.o:bigram.cpp
+	$(cc) -c bigram.cpp -I $(matdir) -I $(includedir)
 
-main.o:bigram.cpp
-	$(cc) -o main.o -c bigram.cpp -I $(matdir) -I $(includedir)
+wordTree.o:wordTree.cpp
+	$(cc) -c wordTree.cpp -I $(includedir)
+
+main.o:main.cpp
+	$(cc) -c main.cpp -I $(includedir)
 
 clean:
 	rm -rf $(obj) main

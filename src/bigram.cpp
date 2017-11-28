@@ -237,22 +237,22 @@ Bigram::~Bigram(){
 	graph.clear();
 }
 
-int main(){
-
-	Bigram bigram("../data/corpus3.txt");
-	bigram.printMap();
-	bigram.directGraphGenerator();
-	bigram.getPath();
-	// map<int, int> temp;
-	// temp.insert(pair<int, int>(1,3));
-	// temp.insert(pair<int, int>(2,5));
-	// map<int ,int >::iterator it;
-	// for (it = temp.begin(); it != temp.end(); ++it)
-	// 	cout << it->first << " => " << it->second<< endl;
-	// cout << temp.find(1)->second << endl;
-
-
-
-
-	return 0;
-}
+// int main(){
+//
+// 	Bigram bigram("../data/corpus3.txt");
+// 	bigram.printMap();
+// 	bigram.directGraphGenerator();
+// 	bigram.getPath();
+// 	// map<int, int> temp;
+// 	// temp.insert(pair<int, int>(1,3));
+// 	// temp.insert(pair<int, int>(2,5));
+// 	// map<int ,int >::iterator it;
+// 	// for (it = temp.begin(); it != temp.end(); ++it)
+// 	// 	cout << it->first << " => " << it->second<< endl;
+// 	// cout << temp.find(1)->second << endl;
+//
+//
+//
+//
+// 	return 0;
+// }

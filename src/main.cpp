@@ -1,29 +1,26 @@
-#include "wordNode.h"
-#include <fstream>
-#include <cassert>
-#include <sstream>
-
+#include "head.h"
+#include "wordTree.h"
+void printVector(vector<vector<string> > input){
+    for (int i = 0; i < input.size(); i ++){
+        for (int j = 0; j < input[i].size(); j ++){
+            cout << input[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
 
 int main(){
 
-    ifstream file;
-    file.open("../data/line.txt");
-    assert(file.is_open());
-    string line;
-    while(getline(file, line)){
-    //	file >> word;
-     	stringstream ss(line);
-	string word;
-	while(ss >> word){
-	    cout << "add node: " << word << endl;
-	    wordNode* node = new wordNode(word);
-	}
-        ss.clear();    	
-//	printf(word.c_str());
-//	printf("\n");
-    }
+    // dataProvider provider("../data/corpus3.txt");
+    // printVector(provider.getWords());
+    wordNode node1, node2, node3, node4, node5, node6;
+    cout << node1.id << endl;
+    cout << node2.id << endl;
+    cout << node3.id << endl;
+    cout << node4.id << endl;
+    cout << node5.id << endl;
+    cout << node6.id << endl;
 
-    file.clear();
-    file.close();
+
     return 0;
 }
