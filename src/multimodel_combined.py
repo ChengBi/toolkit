@@ -2,12 +2,12 @@ import numpy as np
 import tensorflow as tf
 import pickle
 
-data = pickle.load(open('./multi_train_data', 'rb'))
-label_all = pickle.load(open('./multi_train_label', 'rb'))
-test_data = pickle.load(open('./multi_test_data', 'rb'))
-test_label_all = pickle.load(open('./multi_test_label', 'rb'))
-sizes = pickle.load(open('./multi_label_sizes', 'rb'))
-rebuild_label = pickle.load(open('./rebuild_label.npz', 'rb'))
+data = pickle.load(open('../data/multi_train_data', 'rb'))
+label_all = pickle.load(open('../data/multi_train_label', 'rb'))
+test_data = pickle.load(open('../data/multi_test_data', 'rb'))
+test_label_all = pickle.load(open('../data/multi_test_label', 'rb'))
+sizes = pickle.load(open('../data/multi_label_sizes', 'rb'))
+rebuild_label = pickle.load(open('../data/rebuild_label.npz', 'rb'))
 
 data_all = {
     'train_inputs': data,
@@ -195,8 +195,9 @@ with graph.as_default():
 
         sess = tf.Session()
         merged = tf.summary.merge_all()
-        writer = tf.summary.FileWriter('./output', sess.graph)
+        writer = tf.summary.FileWriter('../output', sess.graph)
         sess.run(tf.global_variables_initializer())
+
 
         with tf.name_scope('train'):
 
