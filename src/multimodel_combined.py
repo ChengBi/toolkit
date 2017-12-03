@@ -18,27 +18,27 @@ data_all = {
 }
 
 class parameter(object):
-    
+
     def __init__(self, shape):
         self.shape = shape
-    
+
     def normal(self):
         return tf.Variable(tf.random_normal(self.shape))
 
 class layer(object):
-    
+
     def __init__(self, shape):
         raise NotImplementedError
-        
+
     def __str__(self):
         raise NotImplementedError
 
-    
-    
+
+
 class lstm_layer(layer):
-    
+
     def __init__(self, inputs, n_units, scope):
-        
+
         self.n_units = n_units
         self.input_shape = inputs.shape
         self.outputs, self.states = tf.nn.dynamic_rnn(
@@ -46,16 +46,16 @@ class lstm_layer(layer):
             inputs = inputs,
             dtype = tf.float32,
             scope = scope)
-        
+
     def __str__(self):
         print('|---------------[LSTM layer]---------------|')
         print('shape: ', self.input_shape, ' => ', self.outputs.shape)
         return '|_______________[LSTM layer]_______________|'
-        
+
 class affine_layer(layer):
-    
+
     def __init__(self, inputs, shape, activation):
-        
+
         self.shape = shape
         self.input_shape = inputs.shape
         self.activation = activation
@@ -67,11 +67,11 @@ class affine_layer(layer):
         print('|---------------[Affine layer]---------------|')
         print('shape: ', self.input_shape, ' => ', self.outputs.shape)
         return '|_______________[Affine layer]_______________|'
-    
+
 class reshape_layer(layer):
-    
+
     def __init__(self, inputs, shape):
-        
+
         self.input_shape = inputs.shape
         self.outputs = tf.reshape(inputs, shape)
 
@@ -79,7 +79,7 @@ class reshape_layer(layer):
         print('|---------------[Reshape layer]---------------|')
         print('shape: ', self.input_shape, ' => ', self.outputs.shape)
         return '|_______________[Reshape layer]_______________|'
-    
+
 graph = tf.Graph()
 learning_rate = 1e-3
 iteration = 100
@@ -87,9 +87,9 @@ interval = 5
 keys = data.keys()
 keys_valid = test_data.keys()
 with graph.as_default():
-    
+
     with tf.name_scope('multi_model1'):
-        
+
         with tf.name_scope('placeholder'):
             with tf.name_scope('input_placeholder'):
                 input_placeholder = tf.placeholder(tf.float32, [None, None, 16])
@@ -142,9 +142,9 @@ with graph.as_default():
             model_4_affine_0 = affine_layer(model_4_reshape_0.outputs, [16, 256], tf.nn.relu)
             model_4_output = affine_layer(model_4_affine_0.outputs, [256, 2], tf.identity)
             tf.summary.image('model_4_classify_weights', reshape_layer(model_4_output.weights, [-1,256,2,1]).outputs)
-        
+
         with tf.name_scope('combined_model'):
-            combine = tf.concat([tf.sigmoid(model_0_affine_0.outputs), 
+            combine = tf.concat([tf.sigmoid(model_0_affine_0.outputs),
                                  tf.sigmoid(model_1_affine_0.outputs),
                                  tf.sigmoid(model_2_affine_0.outputs),
                                  tf.sigmoid(model_3_affine_0.outputs),
@@ -155,51 +155,57 @@ with graph.as_default():
 #             print(reschedule)
             affine0 = affine_layer(combine, [1280, 256], tf.nn.relu)
             output = affine_layer(affine0.outputs, [256, 134], tf.identity)
-        
+
         with tf.name_scope('result_0'):
             model_0_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=model_0_output.outputs, labels=target_placeholder_p0))
             model_0_optimizer = tf.train.AdamOptimizer(learning_rate).minimize(model_0_loss)
             model_0_accuracy = tf.reduce_sum(tf.cast(tf.equal(tf.argmax(model_0_output.outputs, 1), tf.argmax(target_placeholder_p0, 1)), tf.float32))
-            tf.summary.scalar('model_0_accuracy', model_0_accuracy)
+            model_0_mean_acc = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(model_0_output.outputs, 1), tf.argmax(target_placeholder_p0, 1)), tf.float32))
+            tf.summary.scalar('model_0_accuracy', model_0_mean_acc)
         with tf.name_scope('result_1'):
             model_1_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=model_1_output.outputs, labels=target_placeholder_p1))
             model_1_optimizer = tf.train.AdamOptimizer(learning_rate).minimize(model_1_loss)
             model_1_accuracy = tf.reduce_sum(tf.cast(tf.equal(tf.argmax(model_1_output.outputs, 1), tf.argmax(target_placeholder_p1, 1)), tf.float32))
-            tf.summary.scalar('model_1_accuracy', model_1_accuracy)
+            model_1_mean_acc = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(model_1_output.outputs, 1), tf.argmax(target_placeholder_p1, 1)), tf.float32))
+            tf.summary.scalar('model_1_accuracy', model_1_mean_acc)
         with tf.name_scope('result_2'):
             model_2_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=model_2_output.outputs, labels=target_placeholder_p2))
             model_2_optimizer = tf.train.AdamOptimizer(learning_rate).minimize(model_2_loss)
             model_2_accuracy = tf.reduce_sum(tf.cast(tf.equal(tf.argmax(model_2_output.outputs, 1), tf.argmax(target_placeholder_p2, 1)), tf.float32))
-            tf.summary.scalar('model_2_accuracy', model_2_accuracy)
+            model_2_mean_acc = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(model_2_output.outputs, 1), tf.argmax(target_placeholder_p2, 1)), tf.float32))
+            tf.summary.scalar('model_2_accuracy', model_2_mean_acc)
         with tf.name_scope('result_3'):
             model_3_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=model_3_output.outputs, labels=target_placeholder_p3))
             model_3_optimizer = tf.train.AdamOptimizer(learning_rate).minimize(model_3_loss)
             model_3_accuracy = tf.reduce_sum(tf.cast(tf.equal(tf.argmax(model_3_output.outputs, 1), tf.argmax(target_placeholder_p3, 1)), tf.float32))
-            tf.summary.scalar('model_3_accuracy', model_3_accuracy)
+            model_3_mean_acc = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(model_3_output.outputs, 1), tf.argmax(target_placeholder_p3, 1)), tf.float32))
+            tf.summary.scalar('model_3_accuracy', model_3_mean_acc)
         with tf.name_scope('result_4'):
             model_4_loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=model_4_output.outputs, labels=target_placeholder_p4))
             model_4_optimizer = tf.train.AdamOptimizer(learning_rate).minimize(model_4_loss)
             model_4_accuracy = tf.reduce_sum(tf.cast(tf.equal(tf.argmax(model_4_output.outputs, 1), tf.argmax(target_placeholder_p4, 1)), tf.float32))
-            tf.summary.scalar('model_4_accuracy', model_4_accuracy)
+            model_4_mean_acc = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(model_4_output.outputs, 1), tf.argmax(target_placeholder_p4, 1)), tf.float32))
+            tf.summary.scalar('model_4_accuracy', model_4_mean_acc)
         with tf.name_scope('result_all'):
             loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=output.outputs, labels=target_placeholder_rebuild))
             optimizer = tf.train.AdamOptimizer(learning_rate).minimize(loss)
             accuracy = tf.reduce_sum(tf.cast(tf.equal(tf.argmax(output.outputs, 1), tf.argmax(target_placeholder_rebuild, 1)), tf.float32))
-            tf.summary.scalar('model_accuracy', accuracy)
-            
+            mean_acc = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(output.outputs, 1), tf.argmax(target_placeholder_rebuild, 1)), tf.float32))
+            tf.summary.scalar('model_accuracy', mean_acc)
+
         sess = tf.Session()
         merged = tf.summary.merge_all()
         writer = tf.summary.FileWriter('./output', sess.graph)
         sess.run(tf.global_variables_initializer())
-        
+
         with tf.name_scope('train'):
-            
+
             for i in range(iteration):
                 accs = 0.0
                 errs = 0.0
                 ns = 0
                 for key in keys:
-                    
+
                     feed_dict = {
                         input_placeholder: data[key],
                         target_placeholder_p0: label_all[0][key],
@@ -241,5 +247,3 @@ with graph.as_default():
                     print('-----------------------------------------------------------------')
                     print('Testing Epoch: %d, acc: %f, loss: %f '%(i, accs, errs))
                     print('-----------------------------------------------------------------')
-                
-        
