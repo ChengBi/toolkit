@@ -197,6 +197,7 @@ with graph.as_default():
         merged = tf.summary.merge_all()
         writer = tf.summary.FileWriter('../output', sess.graph)
         sess.run(tf.global_variables_initializer())
+        saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
 
 
         with tf.name_scope('train'):
@@ -248,3 +249,6 @@ with graph.as_default():
                     print('-----------------------------------------------------------------')
                     print('Testing Epoch: %d, acc: %f, loss: %f '%(i, accs, errs))
                     print('-----------------------------------------------------------------')
+                if i%10 == 0:
+                    saver_path = saver.save(sess, '../models/model_'+str(i)+'.ckpt', global_step=i)
+                    print("Model saved in file: ", saver_path)
