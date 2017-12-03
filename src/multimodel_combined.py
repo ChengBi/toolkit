@@ -2,12 +2,12 @@ import numpy as np
 import tensorflow as tf
 import pickle
 
-data = pickle.load(open('./multi_train_data', 'rb'))
-label_all = pickle.load(open('./multi_train_label', 'rb'))
-test_data = pickle.load(open('./multi_test_data', 'rb'))
-test_label_all = pickle.load(open('./multi_test_label', 'rb'))
-sizes = pickle.load(open('./multi_label_sizes', 'rb'))
-rebuild_label = pickle.load(open('./rebuild_label.npz', 'rb'))
+data = pickle.load(open('../data/multi_train_data', 'rb'))
+label_all = pickle.load(open('../data/multi_train_label', 'rb'))
+test_data = pickle.load(open('../data/multi_test_data', 'rb'))
+test_label_all = pickle.load(open('../data/multi_test_label', 'rb'))
+sizes = pickle.load(open('../data/multi_label_sizes', 'rb'))
+rebuild_label = pickle.load(open('../data/rebuild_label.npz', 'rb'))
 
 data_all = {
     'train_inputs': data,
@@ -82,7 +82,7 @@ class reshape_layer(layer):
     
 graph = tf.Graph()
 learning_rate = 1e-3
-iteration = 100
+iteration = 5000
 interval = 5
 keys = data.keys()
 keys_valid = test_data.keys()
@@ -189,8 +189,10 @@ with graph.as_default():
             
         sess = tf.Session()
         merged = tf.summary.merge_all()
-        writer = tf.summary.FileWriter('./output', sess.graph)
+        writer = tf.summary.FileWriter('../output', sess.graph)
         sess.run(tf.global_variables_initializer())
+        saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
+        #saver.restore(sess, '../models/')
         
         with tf.name_scope('train'):
             
@@ -241,5 +243,8 @@ with graph.as_default():
                     print('-----------------------------------------------------------------')
                     print('Testing Epoch: %d, acc: %f, loss: %f '%(i, accs, errs))
                     print('-----------------------------------------------------------------')
-                
+                if i%10 == 0:
+                    saver_path = saver.save(sess, '../models/model_'+str(i)+'_.ckpt', global_step=i)
+                    print("Model saved in file: ", saver_path)
+                                                                                
         
