@@ -82,7 +82,7 @@ class reshape_layer(layer):
 
 graph = tf.Graph()
 learning_rate = 1e-3
-iteration = 100
+iteration = 5000
 interval = 5
 keys = data.keys()
 keys_valid = test_data.keys()

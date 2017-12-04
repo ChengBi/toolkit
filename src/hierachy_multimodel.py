@@ -82,7 +82,7 @@ class reshape_layer(layer):
 
 graph = tf.Graph()
 learning_rate = 1e-3
-iteration = 100
+iteration = 5000
 interval = 5
 keys = data.keys()
 keys_valid = test_data.keys()
@@ -125,8 +125,8 @@ with graph.as_default():
             model_1_reshape_0 = reshape_layer(model_1_lstm_0.outputs[:,-1,:], [-1, 16])
             model_1_affine_0 = affine_layer(model_1_reshape_0.outputs, [16, 128], tf.nn.relu)
             model_1_combine = tf.concat([model_0_affine_2.outputs, model_1_affine_0.outputs], 1)
-            print('----------model_1----------')
-            print(model_1_combine)
+            # print('----------model_1----------')
+            # print(model_1_combine)
             # model_1_affine_1 = affine_layer(model_1_affine_0.outputs, [128, 128], tf.nn.relu)
             model_1_affine_2 = affine_layer(model_1_combine, [256, 128], tf.nn.relu)
             model_1_output = affine_layer(model_1_affine_2.outputs, [128, 75], tf.identity)
@@ -136,8 +136,8 @@ with graph.as_default():
             model_2_reshape_0 = reshape_layer(model_2_lstm_0.outputs[:,-1,:], [-1, 16])
             model_2_affine_0 = affine_layer(model_2_reshape_0.outputs, [16, 128], tf.nn.relu)
             model_2_combine = tf.concat([model_0_affine_2.outputs, model_1_affine_2.outputs, model_2_affine_0.outputs], 1)
-            print('----------model_2----------')
-            print(model_2_combine)
+            # print('----------model_2----------')
+            # print(model_2_combine)
             # model_2_affine_1 = affine_layer(model_2_affine_0.outputs, [128, 128], tf.nn.relu)
             model_2_affine_2 = affine_layer(model_2_combine, [384, 128], tf.nn.relu)
             model_2_output = affine_layer(model_2_affine_2.outputs, [128, 38], tf.identity)
@@ -147,8 +147,8 @@ with graph.as_default():
             model_3_reshape_0 = reshape_layer(model_3_lstm_0.outputs[:,-1,:], [-1, 16])
             model_3_affine_0 = affine_layer(model_3_reshape_0.outputs, [16, 128], tf.nn.relu)
             model_3_combine = tf.concat([model_0_affine_2.outputs, model_1_affine_2.outputs, model_2_affine_2.outputs, model_3_affine_0.outputs], 1)
-            print('----------model_3----------')
-            print(model_3_combine)
+            # print('----------model_3----------')
+            # print(model_3_combine)
             # model_3_affine_1 = affine_layer(model_3_affine_0.outputs, [128, 128], tf.nn.relu)
             model_3_affine_2 = affine_layer(model_3_combine, [512, 128], tf.nn.relu)
             model_3_output = affine_layer(model_3_affine_2.outputs, [128, 10], tf.identity)
@@ -158,8 +158,8 @@ with graph.as_default():
             model_4_reshape_0 = reshape_layer(model_4_lstm_0.outputs[:,-1,:], [-1, 16])
             model_4_affine_0 = affine_layer(model_4_reshape_0.outputs, [16, 128], tf.nn.relu)
             model_4_combine = tf.concat([model_0_affine_2.outputs, model_1_affine_2.outputs, model_2_affine_2.outputs, model_3_affine_2.outputs, model_4_affine_0.outputs], 1)
-            print('----------model_4----------')
-            print(model_4_combine)
+            # print('----------model_4----------')
+            # print(model_4_combine)
             # model_0_affine_1 = affine_layer(model_4_affine_0.outputs, [128, 128], tf.nn.relu)
             model_4_affine_2 = affine_layer(model_4_combine, [640, 128], tf.nn.relu)
             model_4_output = affine_layer(model_4_affine_2.outputs, [128, 2], tf.identity)
@@ -171,7 +171,7 @@ with graph.as_default():
                                  tf.sigmoid(model_2_affine_0.outputs),
                                  tf.sigmoid(model_3_affine_0.outputs),
                                  tf.sigmoid(model_4_affine_0.outputs)], 1)
-            print(combine)
+            # print(combine)
             # tf.summary.image('combine', reshape_layer(combine, [1, -1, 1280, 1]).outputs)
 #             reschedule = tf.sigmoid(combine)
 #             print(reschedule)
