@@ -154,11 +154,11 @@ with graph.as_default():
             # tf.summary.image('model_4_classify_weights', reshape_layer(model_4_output.weights, [-1,128,2,1]).outputs)
 
         with tf.name_scope('combined_models'):
-            combine = tf.concat([tf.sigmoid(model_0_affine_0.outputs),
-                                 tf.sigmoid(model_1_affine_0.outputs),
-                                 tf.sigmoid(model_2_affine_0.outputs),
-                                 tf.sigmoid(model_3_affine_0.outputs),
-                                 tf.sigmoid(model_4_affine_0.outputs)], 1)
+            combine = tf.concat([model_0_affine_0.outputs,
+                                 model_1_affine_0.outputs,
+                                 model_2_affine_0.outputs,
+                                 model_3_affine_0.outputs,
+                                 model_4_affine_0.outputs], 1)
 #             print(combine)
             # tf.summary.image('combine', reshape_layer(combine, [1, -1, 1280, 1]).outputs)
 #             reschedule = tf.sigmoid(combine)
