@@ -148,7 +148,7 @@ with graph.as_default():
             model_4_lstm_0 = lstm_layer(input_placeholder, 16, 'model_4')
             model_4_reshape_0 = reshape_layer(model_4_lstm_0.outputs[:,-1,:], [-1, 16])
             model_4_affine_0 = affine_layer(model_4_reshape_0.outputs, [16, 128], tf.nn.relu)
-            model_0_affine_1 = affine_layer(model_4_affine_0.outputs, [128, 128], tf.nn.relu)
+            model_4_affine_1 = affine_layer(model_4_affine_0.outputs, [128, 128], tf.nn.relu)
             model_4_affine_2 = affine_layer(model_4_affine_1.outputs, [128, 128], tf.nn.relu)
             model_4_output = affine_layer(model_4_affine_2.outputs, [128, 2], tf.identity)
             # tf.summary.image('model_4_classify_weights', reshape_layer(model_4_output.weights, [-1,128,2,1]).outputs)
