@@ -164,8 +164,8 @@ with graph.as_default():
 #             reschedule = tf.sigmoid(combine)
 #             print(reschedule)
             affine0 = affine_layer(combine, [640, 512], tf.nn.relu)
-            affine1 = affine_layer(affine0, [512, 256], tf.nn.relu)
-            affine2 = affine_layer(affine1, [256, 128], tf.nn.relu)
+            affine1 = affine_layer(affine0.outputs, [512, 256], tf.nn.relu)
+            affine2 = affine_layer(affine1.outputs, [256, 128], tf.nn.relu)
             output = affine_layer(affine2.outputs, [128, 134], tf.identity)
 
         with tf.name_scope('result_0'):
