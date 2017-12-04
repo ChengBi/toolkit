@@ -163,7 +163,7 @@ with graph.as_default():
             # tf.summary.image('combine', reshape_layer(combine, [1, -1, 1280, 1]).outputs)
 #             reschedule = tf.sigmoid(combine)
 #             print(reschedule)
-            affine0 = affine_layer(combine, [1280, 512], tf.nn.relu)
+            affine0 = affine_layer(combine, [640, 512], tf.nn.relu)
             affine1 = affine_layer(affine0, [512, 256], tf.nn.relu)
             affine2 = affine_layer(affine1, [256, 128], tf.nn.relu)
             output = affine_layer(affine2.outputs, [128, 134], tf.identity)
