@@ -153,7 +153,7 @@ with graph.as_default():
             model_4_output = affine_layer(model_4_affine_2.outputs, [128, 2], tf.identity)
             # tf.summary.image('model_4_classify_weights', reshape_layer(model_4_output.weights, [-1,128,2,1]).outputs)
 
-        with tf.name_scope('combined_model'):
+        with tf.name_scope('combined_models'):
             combine = tf.concat([tf.sigmoid(model_0_affine_0.outputs),
                                  tf.sigmoid(model_1_affine_0.outputs),
                                  tf.sigmoid(model_2_affine_0.outputs),
@@ -213,7 +213,7 @@ with graph.as_default():
 
         sess = tf.Session()
         merged = tf.summary.merge_all()
-        writer = tf.summary.FileWriter('../combined_output', sess.graph)
+        writer = tf.summary.FileWriter('../combined_outputs', sess.graph)
         sess.run(tf.global_variables_initializer())
         saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
 

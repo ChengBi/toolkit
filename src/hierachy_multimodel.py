@@ -225,7 +225,7 @@ with graph.as_default():
 
         sess = tf.Session()
         merged = tf.summary.merge_all()
-        writer = tf.summary.FileWriter('../hierachy_output', sess.graph)
+        writer = tf.summary.FileWriter('../hierachy_outputs', sess.graph)
         sess.run(tf.global_variables_initializer())
         saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
 
