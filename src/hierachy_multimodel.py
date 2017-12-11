@@ -116,50 +116,62 @@ with graph.as_default():
             model_0_lstm_0 = lstm_layer(input_placeholder, 16, 'model_0')
             model_0_reshape_0 = reshape_layer(model_0_lstm_0.outputs[:,-1,:], [-1, 16])
             model_0_affine_0 = affine_layer(model_0_reshape_0.outputs, [16, 128], tf.nn.relu)
-            model_0_affine_1 = affine_layer(model_0_affine_0.outputs, [128, 128], tf.nn.relu)
-            model_0_affine_2 = affine_layer(model_0_affine_1.outputs, [128, 128], tf.nn.relu)
+            # model_0_affine_1 = affine_layer(model_0_affine_0.outputs, [128, 128], tf.nn.relu)
+            model_0_affine_2 = affine_layer(model_0_affine_0.outputs, [128, 128], tf.nn.relu)
             model_0_output = affine_layer(model_0_affine_2.outputs, [128, 10], tf.identity)
             # tf.summary.image('model_0_classify_weights', reshape_layer(model_0_output.weights, [-1,128,10,1]).outputs)
         with tf.name_scope('model_1'):
             model_1_lstm_0 = lstm_layer(input_placeholder, 16, 'model_1')
             model_1_reshape_0 = reshape_layer(model_1_lstm_0.outputs[:,-1,:], [-1, 16])
             model_1_affine_0 = affine_layer(model_1_reshape_0.outputs, [16, 128], tf.nn.relu)
-            model_1_affine_1 = affine_layer(model_1_affine_0.outputs, [128, 128], tf.nn.relu)
-            model_1_affine_2 = affine_layer(model_1_affine_1.outputs, [128, 128], tf.nn.relu)
+            model_1_combine = tf.concat([model_0_affine_2.outputs, model_1_affine_0.outputs], 1)
+            # print('----------model_1----------')
+            # print(model_1_combine)
+            # model_1_affine_1 = affine_layer(model_1_affine_0.outputs, [128, 128], tf.nn.relu)
+            model_1_affine_2 = affine_layer(model_1_combine, [256, 128], tf.nn.relu)
             model_1_output = affine_layer(model_1_affine_2.outputs, [128, 75], tf.identity)
             # tf.summary.image('model_1_classify_weights', reshape_layer(model_1_output.weights, [-1,128,75,1]).outputs)
         with tf.name_scope('model_2'):
             model_2_lstm_0 = lstm_layer(input_placeholder, 16, 'model_2')
             model_2_reshape_0 = reshape_layer(model_2_lstm_0.outputs[:,-1,:], [-1, 16])
             model_2_affine_0 = affine_layer(model_2_reshape_0.outputs, [16, 128], tf.nn.relu)
-            model_2_affine_1 = affine_layer(model_2_affine_0.outputs, [128, 128], tf.nn.relu)
-            model_2_affine_2 = affine_layer(model_2_affine_1.outputs, [128, 128], tf.nn.relu)
+            model_2_combine = tf.concat([model_0_affine_2.outputs, model_1_affine_2.outputs, model_2_affine_0.outputs], 1)
+            # print('----------model_2----------')
+            # print(model_2_combine)
+            # model_2_affine_1 = affine_layer(model_2_affine_0.outputs, [128, 128], tf.nn.relu)
+            model_2_affine_2 = affine_layer(model_2_combine, [384, 128], tf.nn.relu)
             model_2_output = affine_layer(model_2_affine_2.outputs, [128, 38], tf.identity)
             # tf.summary.image('model_2_classify_weights', reshape_layer(model_2_output.weights, [-1,128,38,1]).outputs)
         with tf.name_scope('model_3'):
             model_3_lstm_0 = lstm_layer(input_placeholder, 16, 'model_3')
             model_3_reshape_0 = reshape_layer(model_3_lstm_0.outputs[:,-1,:], [-1, 16])
             model_3_affine_0 = affine_layer(model_3_reshape_0.outputs, [16, 128], tf.nn.relu)
-            model_3_affine_1 = affine_layer(model_3_affine_0.outputs, [128, 128], tf.nn.relu)
-            model_3_affine_2 = affine_layer(model_3_affine_1.outputs, [128, 128], tf.nn.relu)
+            model_3_combine = tf.concat([model_0_affine_2.outputs, model_1_affine_2.outputs, model_2_affine_2.outputs, model_3_affine_0.outputs], 1)
+            # print('----------model_3----------')
+            # print(model_3_combine)
+            # model_3_affine_1 = affine_layer(model_3_affine_0.outputs, [128, 128], tf.nn.relu)
+            model_3_affine_2 = affine_layer(model_3_combine, [512, 128], tf.nn.relu)
             model_3_output = affine_layer(model_3_affine_2.outputs, [128, 10], tf.identity)
             # tf.summary.image('model_3_classify_weights', reshape_layer(model_3_output.weights, [-1,128,10,1]).outputs)
         with tf.name_scope('model_4'):
             model_4_lstm_0 = lstm_layer(input_placeholder, 16, 'model_4')
             model_4_reshape_0 = reshape_layer(model_4_lstm_0.outputs[:,-1,:], [-1, 16])
             model_4_affine_0 = affine_layer(model_4_reshape_0.outputs, [16, 128], tf.nn.relu)
-            model_4_affine_1 = affine_layer(model_4_affine_0.outputs, [128, 128], tf.nn.relu)
-            model_4_affine_2 = affine_layer(model_4_affine_1.outputs, [128, 128], tf.nn.relu)
+            model_4_combine = tf.concat([model_0_affine_2.outputs, model_1_affine_2.outputs, model_2_affine_2.outputs, model_3_affine_2.outputs, model_4_affine_0.outputs], 1)
+            # print('----------model_4----------')
+            # print(model_4_combine)
+            # model_0_affine_1 = affine_layer(model_4_affine_0.outputs, [128, 128], tf.nn.relu)
+            model_4_affine_2 = affine_layer(model_4_combine, [640, 128], tf.nn.relu)
             model_4_output = affine_layer(model_4_affine_2.outputs, [128, 2], tf.identity)
             # tf.summary.image('model_4_classify_weights', reshape_layer(model_4_output.weights, [-1,128,2,1]).outputs)
 
-        with tf.name_scope('combined_models'):
-            combine = tf.concat([model_0_affine_0.outputs,
-                                 model_1_affine_0.outputs,
-                                 model_2_affine_0.outputs,
-                                 model_3_affine_0.outputs,
-                                 model_4_affine_0.outputs], 1)
-#             print(combine)
+        with tf.name_scope('hierachy_model'):
+            combine = tf.concat([model_0_affine_2.outputs,
+                                 model_1_affine_2.outputs,
+                                 model_2_affine_2.outputs,
+                                 model_3_affine_2.outputs,
+                                 model_4_affine_2.outputs], 1)
+            # print(combine)
             # tf.summary.image('combine', reshape_layer(combine, [1, -1, 1280, 1]).outputs)
 #             reschedule = tf.sigmoid(combine)
 #             print(reschedule)
@@ -213,7 +225,7 @@ with graph.as_default():
 
         sess = tf.Session()
         merged = tf.summary.merge_all()
-        writer = tf.summary.FileWriter('../combined_outputs', sess.graph)
+        writer = tf.summary.FileWriter('../hierachy_outputs', sess.graph)
         sess.run(tf.global_variables_initializer())
         saver = tf.train.Saver(write_version=tf.train.SaverDef.V1)
 
@@ -268,5 +280,5 @@ with graph.as_default():
                     print('Testing Epoch: %d, acc: %f, loss: %f '%(i, accs, errs))
                     print('-----------------------------------------------------------------')
                 if i%10 == 0:
-                    saver_path = saver.save(sess, '../combined_models/model_'+str(i)+'.ckpt', global_step=i)
+                    saver_path = saver.save(sess, '../hierachy_models/model_'+str(i)+'.ckpt', global_step=i)
                     print("Model saved in file: ", saver_path)
