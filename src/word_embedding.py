@@ -189,4 +189,3 @@ writer.close()
 
 w2v = word2vector('../data/trimmed_cleaned_corpus.txt', 2, True)
 data = w2v.get()
-
