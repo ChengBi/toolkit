@@ -187,6 +187,8 @@ with graph.as_default():
                 feed_dict = {input_placeholder: inputs, target_placeholder:targets, batchSize_placeholder:batchSize}
                 _, err, acc, lookup = sess.run([optimizer, loss, accuracy, layers['input_embedding']], feed_dict=feed_dict)
 #                 print(lookup.shape)
+                errs += err
+                accs += acc
                 n += 1
             errs = errs/n
             accs = accs/n
