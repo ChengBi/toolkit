@@ -98,7 +98,7 @@ with graph.as_default():
     sess = tf.Session()
     sess.run(tf.global_variables_initializer())
     
-    for i in range(1):
+    for i in range(100):
         errs = 0.0
         c = 0
         for key in batch_sizes.keys():
