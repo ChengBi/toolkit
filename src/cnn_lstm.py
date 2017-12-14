@@ -21,7 +21,7 @@ print(len(word_map))
 print(len(lines))
 voc_size = len(word_map)
 
-labels = [i.split()[0] for i in open('../data/TrainSet-eCarX-171019.txt').readlines()]
+labels = [i.split()[0] for i in open('../data/TrainSet-eCarX-171019.txt', encoding='gbk').readlines()]
 target_set = set([l for l in labels])
 target_set = list(target_set)
 # print(target_set)
@@ -30,7 +30,7 @@ target_size = len(target_set)
 train_inputs = np.array([getIDs(i, word_map) for i in lines])
 train_targets = np.zeros((len(labels), target_size))
 
-contexts = open('../data/TrainSet-eCarX-171019.txt').readlines()
+contexts = open('../data/TrainSet-eCarX-171019.txt', encoding='gbk').readlines()
 for line, i in zip(contexts, range(len(contexts))):
     target = line.split()[0]
     train_targets[i][target_set.index(target)] = 1.0
