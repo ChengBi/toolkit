@@ -173,4 +173,4 @@ with graph.as_default():
                 n += 1
             errs = errs/n
             accs = accs/n
-            print('#Training Epoch %d, ACC:%f, ERR:%f', i, accs, errs)
+            print('#Training Epoch %d, ACC:%f, ERR:%f'%(i, accs, errs))
