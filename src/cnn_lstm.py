@@ -94,6 +94,23 @@ class lstm_layer(layer):
     def __str__(self):
         return self.outputs.__str__()
     
+batched_inputs = dict()
+batched_targets = dict()
+batched_keys = dict()
+for input_, target_ in zip(train_inputs, train_targets):
+#     print(input_.shape)
+    if len(input_) not in batched_inputs.keys():
+        batched_inputs[len(input_)] = []
+        batched_targets[len(input_)] = []
+        batched_keys[len(input_)] = 0
+    batched_inputs[len(input_)].append(input_)
+    batched_targets[len(input_)].append(target_)
+    batched_keys[len(input_)] += 1
+#     break
+for key in batched_keys.keys():
+    batched_inputs[key] = np.array(batched_inputs[key])
+    batched_targets[key] = np.array(batched_targets[key])
+    batched_keys[key] = np.array(batched_keys[key])
     
     
 graph = tf.Graph()
