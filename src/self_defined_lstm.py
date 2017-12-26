@@ -1,15 +1,14 @@
 import tensorflow as tf
 import numpy as np
 import pickle
-
 train_data = pickle.load(open('../word2vec/anouymous_train_data_200.npz', 'rb'))
 train_inputs = train_data['inputs']
 train_targets = train_data['targets']
-
-
+print(train_inputs['13_0'].shape)
+print(train_targets['13_0'].shape)
 padded_inputs = dict()
 padded_targets = dict()
-max_batch = 200
+max_batch = 300
 max_step = 40
 feature = 200
 for key in train_inputs.keys():
@@ -29,9 +28,9 @@ for key in train_inputs.keys():
         temp = np.concatenate((temp, np.zeros((max_batch, max_step - temp.shape[1], feature))), 1)
         padded_inputs[key] = temp
         padded_targets[key] = train_targets[key]
-        
-        
-        
+print(padded_inputs['13_1'].shape)
+print(padded_targets['13_1'].shape)
+
 def init(shape):
     return tf.Variable(tf.truncated_normal(shape), tf.float32)
 
@@ -59,24 +58,41 @@ def lstm_layer(inputs, batch_size, step_size):
     ct = init([1, n_units])
 
     ct_tiled = tf.tile(ct, [batch_size, 1])
+    
+    W = tf.transpose(tf.tile(tf.concat([wf, wi, wc, wo], 0), [1, 2]), [1, 0])
+    B = tf.concat([bf, bi, bc, bo], 0)
+    
         
     for i in range(step_size):
         xt = inputs[:, i, :]
-        ft = tf.sigmoid(tf.matmul(ht, wf) + tf.matmul(xt, wf) + bf)
-        it = tf.sigmoid(tf.matmul(ht, wi) + tf.matmul(xt, wi) + bi)
-        c = tf.tanh(tf.matmul(ht, wc) + tf.matmul(xt, wc) + bc)
-        ot = tf.sigmoid(tf.matmul(ht, wo) + tf.matmul(xt, wo) + bo)
+#         ft = tf.sigmoid(tf.matmul(ht, wf) + tf.matmul(xt, wf) + bf)
+#         it = tf.sigmoid(tf.matmul(ht, wi) + tf.matmul(xt, wi) + bi)
+#         c = tf.tanh(tf.matmul(ht, wc) + tf.matmul(xt, wc) + bc)
+#         ot = tf.sigmoid(tf.matmul(ht, wo) + tf.matmul(xt, wo) + bo)
+        X = tf.concat([ht, xt], 1)
+#         print(ht.shape)
+#         print(xt.shape)
+#         print(X.shape)
+        V = tf.sigmoid(tf.matmul(X, W) + B)
+#         print(W.shape)
+#         print(B.shape)
+        ft, it, c, ot = tf.split(V, num_or_size_splits=4, axis=1)
+#         print(ft.shape)
+#         print(it.shape)
+#         print(c.shape)
+#         print(ot.shape)
+        
         ct = tf.reshape(tf.reduce_mean(ft * ct_tiled + it * c, 0), [1, n_units])
         ht = ot * tf.tile(tf.tanh(ct), [batch_size, 1])
-    
+        
     return ht, ct
+
 
 graph = tf.Graph()
 with graph.as_default():
     
-    batch_size = 200
-    step_size = 40
-    feature = 200
+    batch_size = max_batch
+    step_size = max_step
     
     inputs_placeholder = tf.placeholder(tf.float32, [batch_size, step_size, feature])
     targets_placeholder = tf.placeholder(tf.float32, [batch_size, 134])
@@ -131,4 +147,4 @@ with graph.as_default():
             _, acc, err = sess.run([optimizer, accuracy, sum_loss], feed_dict=feed_dict)
             accs += acc
             errs += err
-            print('#Trainig Epoch: %d, ACC:%f ERR:%f'%(i, accs/n, errs/n))
+        print('#Trainig Epoch: %d, ACC:%f ERR:%f'%(i, accs/n, errs/n))
