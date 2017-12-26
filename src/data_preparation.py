@@ -77,12 +77,12 @@ def batch(data, batch_size):
                 results['targets'][new_key] = np.array(data['targets'][key][i*batch_size:])
     return results
 
-train_batch = batch(train_provider.data, 50)
-valid_batch = batch(valid_provider.data, 50)
-pickle.dump(train_batch, open('anouymous_train_data_50.npz', 'wb'))
-pickle.dump(valid_batch, open('anouymous_valid_data_50.npz', 'wb'))
+#train_batch = batch(train_provider.data, 50)
+#valid_batch = batch(valid_provider.data, 50)
+#pickle.dump(train_batch, open('anouymous_train_data_50.npz', 'wb'))
+#pickle.dump(valid_batch, open('anouymous_valid_data_50.npz', 'wb'))
 
-train_batch = batch(train_provider.data, 100)
-valid_batch = batch(valid_provider.data, 100)
-pickle.dump(train_batch, open('anouymous_train_data_100.npz', 'wb'))
-pickle.dump(valid_batch, open('anouymous_valid_data_100.npz', 'wb'))
+train_batch = batch(train_provider.data, 200)
+valid_batch = batch(valid_provider.data, 200)
+pickle.dump(train_batch, open('anouymous_train_data_200.npz', 'wb'))
+pickle.dump(valid_batch, open('anouymous_valid_data_200.npz', 'wb'))
