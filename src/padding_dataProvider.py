@@ -1,3 +1,11 @@
+import gensim
+import numpy as np
+import pickle
+import matplotlib.pyplot as plt
+import tensorflow as tf
+import re
+from tqdm import tqdm, tqdm_notebook
+
 class paddingDataProvider():
     
     def __init__(self,filename, models, label_map, max_padding = 30):
